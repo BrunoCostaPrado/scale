@@ -1,0 +1,17 @@
+# docker run -p 5432:5432 -e POSTGRES_PASSWORD=docker postgres
+# docker-compose up
+version: "1"
+name: scale
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=scale
+    volumes:
+      - pokemon_pg_data:/bitnami/postgresql
+volumes:
+  pokemon_pg_data:

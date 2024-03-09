@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "./db.svg"
+}
+
+generator docs {
+  provider              = "node node_modules/prisma-docs-generator"
+  includeRelationFields = true
+  output                = "./docs"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  weight    Float
+  height    Float
+  bmi       Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
