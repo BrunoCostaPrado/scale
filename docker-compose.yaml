@@ -12,6 +12,6 @@ services:
       - POSTGRES_PASSWORD=docker
       - POSTGRES_DB=scale
     volumes:
-      - pokemon_pg_data:/bitnami/postgresql
+      - scale_pg_data:/bitnami/postgresql
 volumes:
-  pokemon_pg_data:
+  scale_pg_data:
